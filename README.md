@@ -58,20 +58,22 @@ Upload images in a /assets folder in your repo and reference them like below.
 
 ## 📸 Screenshots
 
+## 📸 Screenshots
+
 ### 🏠 Welcome Page
-![Welcome](https://raw.githubusercontent.com/deepakbpit2504/ECHO-AI-Emotion-Centered-Human-Optimization/main/assets/welcome.jpg)
+![Welcome](assets/welcome.jpg)
 
 ### 🔐 Login Page
-![Login](https://raw.githubusercontent.com/deepakbpit2504/ECHO-AI-Emotion-Centered-Human-Optimization/main/assets/login.jpg)
+![Login](assets/login.jpg)
 
 ### 📝 Register Page
-![Register](https://raw.githubusercontent.com/deepakbpit2504/ECHO-AI-Emotion-Centered-Human-Optimization/main/assets/register.jpg)
+![Register](assets/register.jpg)
 
 ### 📊 Dashboard
-![Dashboard](https://raw.githubusercontent.com/deepakbpit2504/ECHO-AI-Emotion-Centered-Human-Optimization/main/assets/dashboard.jpg)
+![Dashboard](assets/dashboard.jpg)
 
 ### 📈 Analytics
-![Analytics](https://raw.githubusercontent.com/deepakbpit2504/ECHO-AI-Emotion-Centered-Human-Optimization/main/assets/analytics.jpg)
+![Analytics](assets/analytics.jpg)
 
 🧰 Tech Stack
 Python 🐍

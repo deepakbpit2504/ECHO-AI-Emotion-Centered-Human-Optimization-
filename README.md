@@ -59,19 +59,19 @@ Upload images in a /assets folder in your repo and reference them like below.
 ## 📸 Screenshots
 
 ### 🏠 Welcome Page
-![Welcome](assets/welcome.jpg)
+![Welcome](welcome.jpg)
 
 ### 🔐 Login Page
-![Login](assets/login.jpg)
+![Login](login.jpg)
 
 ### 📝 Register Page
-![Register](assets/register.jpg)
+![Register](register.jpg)
 
 ### 📊 Dashboard
-![Dashboard](assets/dashboard.jpg)
+![Dashboard](dashboard.jpg)
 
 ### 📈 Analytics
-![Analytics](assets/analytics.jpg)
+![Analytics](analytics.jpg)
 
 🧰 Tech Stack
 Python 🐍

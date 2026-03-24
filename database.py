@@ -18,7 +18,6 @@ def init_db():
         emotion TEXT
     )
     """)
-
     conn.commit()
 
 def add_user(username, password):

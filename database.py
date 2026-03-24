@@ -33,5 +33,5 @@ def save_emotion(username, text, emotion):
     conn.commit()
 
 def get_emotions(username):
-    cursor.execute("SELECT text, emotion FROM emotions WHERE username=?", (username,))
+    cursor.execute("SELECT emotion FROM emotions WHERE username=?", (username,))
     return cursor.fetchall()

@@ -36,33 +36,7 @@ ECHO_AI/ │── app.py │── auth.py │── database.py │── requ
 
 ---
 
-## ⚙️ Installation & Setup
-
-### 1️⃣ Clone the repository
-```bash
-git clone https://github.com/your-username/echo-ai.git
-cd echo-ai
-
-2. Install dependencies
-Bash
-pip install -r requirements.txt
-
-3. Run app
-Bash
-streamlit run app.py
-
-🌐 Deployment (Streamlit Cloud)
-Push your project to GitHub
-Go to https://share.streamlit.io⁠�
-Connect your repository
-Set:
-Main file path → app.py
-Click Deploy
-🧾 Login Details (Demo)
-Register a new user from the Register page, then login using:
-Username: (your choice)
-Password: (your choice)
-🧪 How Emotion Detection Works
+##🧪 How Emotion Detection Works
 This project uses a rule-based NLP approach:
 Keywords are matched from user input
 Emotions classified into:
@@ -78,9 +52,9 @@ Output: Happy
 Bar chart → Emotion frequency
 Pie chart → Emotion distribution
 Helps visualize emotional trends
+
 📸 Screenshots
 Upload images in a /assets folder in your repo and reference them like below.
-## 📸 Screenshots
 
 ## 📸 Screenshots
 

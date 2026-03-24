@@ -5,11 +5,12 @@ import matplotlib.pyplot as plt
 from database import init_db, add_user, validate_user, save_emotion, get_emotions
 from emotion_model import detect_emotion
 
+# ---------------- PAGE CONFIG ----------------
 st.set_page_config(page_title="ECHO AI", layout="wide")
 
 init_db()
 
-# Session state
+# ---------------- SESSION STATE ----------------
 if "page" not in st.session_state:
     st.session_state.page = "welcome"
 
@@ -19,23 +20,47 @@ if "user" not in st.session_state:
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
-# Navigation function
 def go(page):
     st.session_state.page = page
 
-# ---------------- WELCOME ----------------
+# ---------------- UI STYLE ----------------
+st.markdown("""
+<style>
+.card {
+    background-color: #0f172a;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+.title {
+    font-size: 40px;
+    font-weight: bold;
+    color: #38bdf8;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# ================= WELCOME =================
 if st.session_state.page == "welcome":
-    st.title("🌿 ECHO AI")
+    st.markdown('<div class="title">🌿 ECHO AI</div>', unsafe_allow_html=True)
 
     st.markdown("""
-    ### 🧠 Emotion-Centered Human Optimization
+    <div class="card">
+    <h3>🧠 Emotion-Centered Human Optimization (ECHO)</h3>
+    <p>
+    ECHO AI is an AI-powered system designed to help users understand, analyze,
+    and improve their emotional well-being using Machine Learning.
+    </p>
 
-    ECHO AI helps you:
-    - Analyze emotions from text
-    - Track mental patterns
-    - Visualize emotional trends
-    - Interact with an AI chatbot
-    """)
+    <h4>🎯 Purpose:</h4>
+    <ul>
+        <li>Analyze emotions from text input</li>
+        <li>Track emotional patterns over time</li>
+        <li>Provide insights through analytics</li>
+        <li>Assist users via AI chatbot</li>
+    </ul>
+    </div>
+    """, unsafe_allow_html=True)
 
     col1, col2 = st.columns(2)
 
@@ -47,24 +72,46 @@ if st.session_state.page == "welcome":
         if st.button("🔐 Login"):
             go("login")
 
-# ---------------- REGISTER ----------------
+# ================= REGISTER =================
 elif st.session_state.page == "register":
     st.title("📝 Register")
+
+    st.markdown("""
+    <div class="card">
+    <h3>📘 Why Registration?</h3>
+    <ul>
+        <li>Create a personal account</li>
+        <li>Store your emotional history</li>
+        <li>Enable personalized analytics</li>
+    </ul>
+    </div>
+    """, unsafe_allow_html=True)
 
     username = st.text_input("Username")
     password = st.text_input("Password", type="password")
 
     if st.button("Register"):
         add_user(username, password)
-        st.success("Registered successfully!")
+        st.success("✅ Registered successfully!")
         go("login")
 
     if st.button("⬅️ Back"):
         go("welcome")
 
-# ---------------- LOGIN ----------------
+# ================= LOGIN =================
 elif st.session_state.page == "login":
     st.title("🔐 Login")
+
+    st.markdown("""
+    <div class="card">
+    <h3>📘 Why Login?</h3>
+    <ul>
+        <li>Secure access to your data</li>
+        <li>Personalized dashboard</li>
+        <li>Private emotion tracking</li>
+    </ul>
+    </div>
+    """, unsafe_allow_html=True)
 
     username = st.text_input("Username")
     password = st.text_input("Password", type="password")
@@ -74,33 +121,57 @@ elif st.session_state.page == "login":
             st.session_state.user = username
             go("dashboard")
         else:
-            st.error("Invalid credentials")
+            st.error("❌ Invalid credentials")
 
     if st.button("⬅️ Back"):
         go("welcome")
 
-# ---------------- DASHBOARD ----------------
+# ================= DASHBOARD =================
 elif st.session_state.page == "dashboard":
     if not st.session_state.user:
         go("login")
         st.stop()
 
     st.title("📊 Dashboard")
-    st.write(f"Welcome 👋 {st.session_state.user}")
+    st.write(f"👋 Welcome **{st.session_state.user}**")
 
-    # Emotion Analysis
-    st.subheader("🧠 Enter Your Thoughts")
+    st.markdown("""
+    <div class="card">
+    <h3>📘 Dashboard Overview</h3>
+    <ul>
+        <li>Enter your thoughts to analyze emotions</li>
+        <li>AI model predicts emotional state</li>
+        <li>Results are stored for analytics</li>
+    </ul>
+    </div>
+    """, unsafe_allow_html=True)
 
-    text = st.text_area("Write something...")
+    # -------- Emotion Input --------
+    st.subheader("🧠 Analyze Your Thoughts")
+
+    text = st.text_area("Enter your thought:")
 
     if st.button("Analyze Emotion"):
-        emotion = detect_emotion(text)
-        save_emotion(st.session_state.user, text, emotion)
+        if text.strip() != "":
+            emotion = detect_emotion(text)
+            save_emotion(st.session_state.user, text, emotion)
 
-        st.success(f"Detected Emotion: {emotion}")
+            st.success(f"Detected Emotion: **{emotion}**")
+        else:
+            st.warning("Please enter some text.")
 
-    # Chatbot
+    # -------- Chatbot --------
     st.markdown("## 🤖 ECHO AI Chatbot")
+
+    st.markdown("""
+    <div class="card">
+    <h4>💬 Chatbot Info</h4>
+    <p>
+    The chatbot provides supportive responses based on your input.
+    It helps guide users with emotional awareness and suggestions.
+    </p>
+    </div>
+    """, unsafe_allow_html=True)
 
     user_input = st.text_input("Ask something:")
 
@@ -108,7 +179,7 @@ elif st.session_state.page == "dashboard":
         response = ""
 
         if "stress" in user_input.lower():
-            response = "Try breathing exercises and take short breaks."
+            response = "Try deep breathing and take short breaks."
         elif "sad" in user_input.lower():
             response = "It's okay to feel sad. Talk to someone you trust."
         elif "happy" in user_input.lower():
@@ -134,7 +205,7 @@ elif st.session_state.page == "dashboard":
             st.session_state.user = None
             go("welcome")
 
-# ---------------- ANALYTICS ----------------
+# ================= ANALYTICS =================
 elif st.session_state.page == "analytics":
     if not st.session_state.user:
         go("login")
@@ -142,17 +213,27 @@ elif st.session_state.page == "analytics":
 
     st.title("📈 Analytics Dashboard")
 
+    st.markdown("""
+    <div class="card">
+    <h3>📘 Analytics Explanation</h3>
+    <ul>
+        <li>Bar chart shows frequency of emotions</li>
+        <li>Pie chart shows percentage distribution</li>
+        <li>Emotional score represents overall mood trend</li>
+    </ul>
+    </div>
+    """, unsafe_allow_html=True)
+
     data = get_emotions(st.session_state.user)
 
     if len(data) == 0:
-        st.info("No data available")
+        st.info("No data available yet.")
     else:
         df = pd.DataFrame(data, columns=["Emotion"])
 
-        st.subheader("📊 Emotion Distribution")
-
         counts = df["Emotion"].value_counts()
 
+        st.subheader("📊 Emotion Distribution")
         st.bar_chart(counts)
 
         # Pie chart
@@ -161,7 +242,7 @@ elif st.session_state.page == "analytics":
         ax.set_title("Emotion Distribution")
         st.pyplot(fig)
 
-        # Emotional score
+        # Emotional Score
         score_map = {
             "Happy": 2,
             "Angry": -1,
@@ -171,7 +252,8 @@ elif st.session_state.page == "analytics":
         scores = df["Emotion"].map(score_map)
         avg_score = scores.mean()
 
-        st.metric("🧠 Emotional Score", round(avg_score, 2))
+        st.subheader("🧠 Emotional Score")
+        st.metric("Average Mood Score", round(avg_score, 2))
 
-    if st.button("⬅️ Back"):
+    if st.button("⬅️ Back to Dashboard"):
         go("dashboard")

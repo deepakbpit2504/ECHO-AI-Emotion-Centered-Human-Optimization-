@@ -1,55 +1,28 @@
-import pandas as pd
-from sklearn.model_selection import train_test_split
+import pickle
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.pipeline import Pipeline
-import joblib
 
-# Sample dataset (expand later for better accuracy)
-data = {
-    "text": [
-        "I am very happy today",
-        "This is amazing",
-        "I feel sad and lonely",
-        "I am very stressed",
-        "I am excited",
-        "I feel terrible",
-        "I love this",
-        "This is bad",
-        "I am depressed",
-        "I feel great",
-        "I am anxious",
-        "I am angry"
-    ],
-    "emotion": [
-        "Happy",
-        "Happy",
-        "Sad",
-        "Sad",
-        "Happy",
-        "Sad",
-        "Happy",
-        "Sad",
-        "Sad",
-        "Happy",
-        "Sad",
-        "Angry"
-    ]
-}
+texts = [
+    "I am happy", "I feel great", "This is amazing",
+    "I am sad", "I feel bad", "This is terrible",
+    "I am angry", "I hate this", "I love this",
+    "What a wonderful day"
+]
 
-df = pd.DataFrame(data)
+labels = [
+    "Happy", "Happy", "Happy",
+    "Sad", "Sad", "Sad",
+    "Angry", "Angry", "Happy",
+    "Happy"
+]
 
-X_train, X_test, y_train, y_test = train_test_split(
-    df["text"], df["emotion"], test_size=0.2, random_state=42
-)
+vectorizer = TfidfVectorizer()
+X = vectorizer.fit_transform(texts)
 
-model = Pipeline([
-    ("tfidf", TfidfVectorizer()),
-    ("clf", LogisticRegression(max_iter=200))
-])
+model = LogisticRegression()
+model.fit(X, labels)
 
-model.fit(X_train, y_train)
+with open("emotion_model.pkl", "wb") as f:
+    pickle.dump((vectorizer, model), f)
 
-joblib.dump(model, "emotion_model.pkl")
-
-print("✅ Model trained and saved as emotion_model.pkl")
+print("Model saved!")

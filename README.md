@@ -58,8 +58,6 @@ Upload images in a /assets folder in your repo and reference them like below.
 
 ## 📸 Screenshots
 
-## 📸 Screenshots
-
 ### 🏠 Welcome Page
 ![Welcome](assets/welcome.jpg)
 

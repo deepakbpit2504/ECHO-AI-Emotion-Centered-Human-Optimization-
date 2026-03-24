@@ -84,16 +84,16 @@ Upload images in a /assets folder in your repo and reference them like below.
 �![Welcome](assets/welcome.jpg)
 
 🔐 Login Page
-� ![Login](assets/login.jpg)
+![Login](assets/login.jpg)
 
 📝 Register Page
-� ![Register](assets/register.jpg)
+![Register](assets/register.jpg)
 
 📊 Dashboard
-� ![Dashboard](assets/dashboard.jpg)
+![Dashboard](assets/dashboard.jpg)
 
 📈 Analytics
-� ![Analytics](assets/analytics.jpg)
+![Analytics](assets/analytics.jpg)
 
 🧰 Tech Stack
 Python 🐍

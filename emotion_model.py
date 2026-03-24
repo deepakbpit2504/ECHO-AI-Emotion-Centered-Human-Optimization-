@@ -1,15 +1,7 @@
-from textblob import TextBlob
+import joblib
+
+model = joblib.load("emotion_model.pkl")
 
 def detect_emotion(text):
-    polarity = TextBlob(text).sentiment.polarity
-
-    if polarity > 0.5:
-        return "Very Happy 😊"
-    elif polarity > 0.1:
-        return "Happy 🙂"
-    elif polarity < -0.5:
-        return "Very Sad 😢"
-    elif polarity < -0.1:
-        return "Sad 🙁"
-    else:
-        return "Neutral 😐"
+    prediction = model.predict([text])[0]
+    return prediction

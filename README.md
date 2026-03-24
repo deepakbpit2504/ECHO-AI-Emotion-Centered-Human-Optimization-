@@ -82,20 +82,22 @@ Helps visualize emotional trends
 Upload images in a /assets folder in your repo and reference them like below.
 ## 📸 Screenshots
 
+## 📸 Screenshots
+
 ### 🏠 Welcome Page
-![Welcome](assets/welcome.jpg)
+![Welcome](https://raw.githubusercontent.com/deepakbpit2504/ECHO-AI-Emotion-Centered-Human-Optimization/main/assets/welcome.jpg)
 
 ### 🔐 Login Page
-![Login](assets/login.jpg)
+![Login](https://raw.githubusercontent.com/deepakbpit2504/ECHO-AI-Emotion-Centered-Human-Optimization/main/assets/login.jpg)
 
 ### 📝 Register Page
-![Register](assets/register.jpg)
+![Register](https://raw.githubusercontent.com/deepakbpit2504/ECHO-AI-Emotion-Centered-Human-Optimization/main/assets/register.jpg)
 
 ### 📊 Dashboard
-![Dashboard](assets/dashboard.jpg)
+![Dashboard](https://raw.githubusercontent.com/deepakbpit2504/ECHO-AI-Emotion-Centered-Human-Optimization/main/assets/dashboard.jpg)
 
 ### 📈 Analytics
-![Analytics](assets/analytics.jpg)
+![Analytics](https://raw.githubusercontent.com/deepakbpit2504/ECHO-AI-Emotion-Centered-Human-Optimization/main/assets/analytics.jpg)
 
 🧰 Tech Stack
 Python 🐍

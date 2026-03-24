@@ -4,19 +4,14 @@ from database import add_user
 st.title("📝 Register")
 
 st.markdown("""
-### 📘 Why Registration?
+### 📘 Registration Theory
 
-Registration allows users to create a personal account in the ECHO AI system.
+Registration allows users to create an account in the system.
 
-**Purpose:**
-- Store user-specific emotional data
-- Enable personalized analytics
-- Maintain secure access to the system
-
-**How it works:**
-- User enters username and password
-- Credentials are stored in a database
-- User can later login using the same credentials
+It helps:
+- Store personal data
+- Enable login authentication
+- Maintain user-specific emotion history
 """)
 
 username = st.text_input("Username")

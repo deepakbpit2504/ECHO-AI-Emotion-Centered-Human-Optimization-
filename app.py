@@ -3,29 +3,37 @@ from database import init_db
 
 st.set_page_config(page_title="ECHO AI", layout="wide")
 
-# Initialize DB
 init_db()
 
-st.title("🌿 ECHO AI - Emotion-Centered Human Optimization")
-
-st.sidebar.success("Navigate using pages below 👇")
-
+# Custom CSS for modern UI
 st.markdown("""
-## 🧠 About ECHO AI
+<style>
+body {
+    background-color: #0f172a;
+}
 
-ECHO (Emotion-Centered Human Optimization) is an AI-powered system designed to:
+h1, h2, h3 {
+    color: #38bdf8;
+}
 
-- Detect human emotions using NLP
-- Store emotional history
-- Provide personalized suggestions
-- Help improve productivity and mental well-being
+.card {
+    background-color: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
+}
 
-### 🚀 Features
-- User authentication system
-- Emotion detection
-- Dashboard with insights
-- Historical analysis
-- Visualization of emotional trends
+.stButton>button {
+    background-color: #38bdf8;
+    color: white;
+    border-radius: 8px;
+}
+</style>
+""", unsafe_allow_html=True)
 
-👉 Use the sidebar to explore the application.
-""")
+st.title("🌿 ECHO AI")
+st.write("Emotion-Centered Human Optimization System")
+
+st.sidebar.title("Navigation")
+st.sidebar.info("Use the pages to navigate through the app")

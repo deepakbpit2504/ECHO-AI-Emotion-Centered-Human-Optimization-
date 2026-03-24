@@ -1,29 +1,34 @@
 import streamlit as st
-from emotion_model import detect_emotion
 from database import save_emotion
 
 st.title("📊 Dashboard")
 
 st.markdown("""
-### 📘 Dashboard Overview
+### 📘 Dashboard Theory
 
-The dashboard is the main working area of ECHO AI.
+This dashboard allows users to:
+- Enter thoughts
+- Analyze emotions
+- Store results for analytics
 
-**Features:**
-- Input your thoughts or text
-- AI model analyzes emotion
-- Results are stored for future insights
-
-**Working:**
-- User enters a sentence
-- Machine Learning model processes it
-- Emotion is predicted (Happy, Sad, Angry, etc.)
-- Data is saved in the database
+The emotion detection uses rule-based AI logic (keyword matching).
 """)
 
 if "user" not in st.session_state or st.session_state.user is None:
     st.warning("Please login first")
     st.stop()
+
+def detect_emotion(text):
+    text = text.lower()
+
+    if any(word in text for word in ["happy", "great", "love", "amazing", "good"]):
+        return "Happy"
+    elif any(word in text for word in ["sad", "bad", "depressed", "lonely"]):
+        return "Sad"
+    elif any(word in text for word in ["angry", "hate", "frustrated", "annoyed"]):
+        return "Angry"
+    else:
+        return "Neutral"
 
 text = st.text_area("Enter your thought")
 

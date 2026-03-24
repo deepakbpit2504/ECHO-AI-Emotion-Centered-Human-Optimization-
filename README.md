@@ -80,19 +80,21 @@ Pie chart → Emotion distribution
 Helps visualize emotional trends
 📸 Screenshots
 Upload images in a /assets folder in your repo and reference them like below.
-🏠 Welcome Page
-�![Welcome](assets/welcome.jpg)
+## 📸 Screenshots
 
-🔐 Login Page
+### 🏠 Welcome Page
+![Welcome](assets/welcome.jpg)
+
+### 🔐 Login Page
 ![Login](assets/login.jpg)
 
-📝 Register Page
+### 📝 Register Page
 ![Register](assets/register.jpg)
 
-📊 Dashboard
+### 📊 Dashboard
 ![Dashboard](assets/dashboard.jpg)
 
-📈 Analytics
+### 📈 Analytics
 ![Analytics](assets/analytics.jpg)
 
 🧰 Tech Stack

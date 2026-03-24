@@ -4,19 +4,14 @@ from database import validate_user
 st.title("🔐 Login")
 
 st.markdown("""
-### 📘 Why Login?
+### 📘 Login Theory
 
-Login ensures secure access to the system.
+Login is used to verify user identity before accessing the system.
 
-**Purpose:**
-- Authenticate users
-- Protect personal emotional data
-- Provide personalized dashboard access
-
-**How it works:**
-- User enters credentials
-- System verifies them from database
-- Access is granted if valid
+It ensures:
+- Security
+- Data privacy
+- Personalized dashboard access
 """)
 
 username = st.text_input("Username")

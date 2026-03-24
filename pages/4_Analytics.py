@@ -6,18 +6,12 @@ from database import get_emotions
 st.title("📈 Analytics")
 
 st.markdown("""
-### 📘 Analytics Overview
+### 📘 Analytics Theory
 
-This section visualizes emotional data collected from user inputs.
-
-**Purpose:**
-- Understand emotional patterns
-- Track mood distribution
-- Provide insights into user behavior
-
-**Visualizations include:**
-- Bar chart → Emotion frequency
-- Pie chart → Emotion distribution percentage
+This section visualizes emotional trends:
+- Bar chart shows frequency
+- Pie chart shows distribution
+- Helps understand emotional patterns
 """)
 
 if "user" not in st.session_state or st.session_state.user is None:
@@ -32,7 +26,6 @@ else:
     df = pd.DataFrame(data, columns=["Emotion"])
     counts = df["Emotion"].value_counts()
 
-    st.subheader("📊 Emotion Distribution")
     st.bar_chart(counts)
 
     fig, ax = plt.subplots()

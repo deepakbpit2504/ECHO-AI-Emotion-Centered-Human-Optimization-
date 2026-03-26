@@ -54,7 +54,6 @@ Pie chart → Emotion distribution
 Helps visualize emotional trends
 
 📸 Screenshots
-Upload images in a /assets folder in your repo and reference them like below.
 
 ## 📸 Screenshots
 
